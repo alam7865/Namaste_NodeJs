@@ -1,0 +1,2 @@
+let arr = ["sajjad", "sabbaj", "sony", "sohail"]
+let x = "sajjad"

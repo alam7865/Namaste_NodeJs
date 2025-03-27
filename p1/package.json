@@ -2,9 +2,8 @@
   "name": "p1",
   "version": "1.0.0",
   "description": "",
-  "main": "add.js",
   "scripts": {
-    "start": "node express.js"
+    "start": "nodemon express1.js"
   },
   "keywords": [],
   "author": "",

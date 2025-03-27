@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 app.get("/user", (req, res) => {
   console.log("HHHHHHHHH");
-  res.send("Hi Sabaz122345");
+  res.send("Hi Sabaz ALam 123");
 });
 
 app.get("/hero", (req, res) => {
@@ -14,6 +14,6 @@ app.get("/apple", (req, res) => {
   console.log("Apple");
   res.send("Hi Apple");
 });
-app.listen(7777, () => {
+app.listen(7787, () => {
   console.log("Server started at port 7777");
 });

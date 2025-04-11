@@ -2,9 +2,8 @@
   "name": "p11",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
   "scripts": {
-     "start": "node App.js"
+     "start": "nodemon App1.js"
   },
   "keywords": [],
   "author": "",

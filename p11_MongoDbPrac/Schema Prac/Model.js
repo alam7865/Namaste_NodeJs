@@ -1,23 +1,62 @@
 const mongoose = require("mongoose");
-const userSchema = new mongoose.Schema({
-  FirstName: {
-    type: "String",
-  },
+const validator = require("validator");
+const userSchema = new mongoose.Schema(
+  {
+    FirstName: {
+      type: String,
+      require: true,
+      // lowercase: true,
+      uppercase: true,
+      // maxlength: 3,
+    },
 
-  LastName: {
-    type: "String",
-  },
-  EmailId: {
-    type: "String",
-  },
+    LastName: {
+      type: String,
+      lowercase: true,
+    },
+    // EmailId: {
+    //   type: String,
+    //   trim: true,
+    //   // set: (v) => v.replace(/\s+/g, " "),
+    //   set: (v) => v.replace(/\s+/g, ""),
+    //   validate(value) {
+    //     if (!validator.isEmail(value)) {
+    //       throw new Error("Invalid email address" + value);
+    //     }
+    //   },
+    // },
 
-  Password: {
-    type: "String",
+    EmailId: {
+      type: String,
+      trim: true,
+      set: (v) => v.replace(/\s+/g, ""),
+      validate(value) {
+        if (!validator.isEmail(value)) {
+          throw new Error("Invalid email address: " + value);
+        }
+      },
+    },
+    Skill: {
+      type: [String],
+    },
+    Password: {
+      type: String,
+    },
+    Age: {
+      type: String,
+    },
+    Gender: {
+      type: String,
+      runValidator: true,
+      validate(value) {
+        if (!["Male", "Female", "Other"].includes(value)) {
+          throw new Error("Gender Data is Not Valid");
+        }
+      },
+    },
   },
-  Age: {
-    type: "String",
-  },
-});
+  { timestamps: true }
+);
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
